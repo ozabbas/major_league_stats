@@ -1,2 +1,0 @@
-class ExampleModel < ApplicationRecord
-end
