@@ -1,7 +1,10 @@
 class PlayersController < ApplicationController
 
-  def show
-    render json: { message: "hello" }
+  def index
+    render json: Player.all
   end
 
+  def show
+    render json: Player.find_by(id: params[:id])
+  end
 end
