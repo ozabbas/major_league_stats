@@ -33,7 +33,6 @@ class MlbApi < ApplicationRecord
           obp = player_data.dig("sport_career_hitting", "queryResults", "row", "obp")
           ops = player_data.dig("sport_career_hitting", "queryResults", "row", "ops")
           runs = player_data.dig("sport_career_hitting", "queryResults", "row", "r")
-
         end
         team_name = team["name_display_full"]
         position = player["position_txt"]
@@ -42,26 +41,26 @@ class MlbApi < ApplicationRecord
         if pitcher_data.dig("sport_pitching_tm", "queryResults", "row").is_a?(Array)
           era = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("era")
           whip = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("whip")
-          win_pct = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("wpct")
-          games_played = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("g")
-          games_started = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("gs")
-          saves = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("sv")
-          innings_pitched = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("ip")
-          strikeouts = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("so")
+          wpct = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("wpct")
+          gp = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("g")
+          gs = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("gs")
+          sv = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("sv")
+          ip = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("ip")
+          so = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("so")
           whip = pitcher_data.dig("sport_pitching_tm", "queryResults", "row").first.dig("whip")
         else 
           era = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "era")
           whip = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "whip")
-          win_pct = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "wpct")
-          games_played = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "g")
-          games_started = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "gs")
-          saves = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "sv")
-          innings_pitched = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "ip")
-          strikeouts = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "so")
+          wpct = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "wpct")
+          g = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "g")
+          gs = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "gs")
+          sv = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "sv")
+          ip = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "ip")
+          so = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "so")
           whip = pitcher_data.dig("sport_pitching_tm", "queryResults", "row", "whip")
-
         end
-        Player.create(name: name, team_name: team_name, ab: at_bats, r: runs, h: hits, home_run: home_run, rbi: rbi, sb: stolen_bases, avg: average, obp: obp, ops: ops, wpct: win_pct, era: era, g: games_played, gs: games_started, sv: saves, ip: innings_pitched, so: strikeouts, whip: whip)
+
+        Player.create(name: name, team_name: team_name, ab: at_bats, r: runs, h: hits, home_run: home_run, rbi: rbi, sb: stolen_bases, avg: average, obp: obp, ops: ops, wpct: wpct, era: era, g: g, gs: gs, sv: sv, ip: ip, so: so, whip: whip)
 
         
       end
