@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_06_234537) do
+ActiveRecord::Schema.define(version: 2021_08_15_161312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,18 @@ ActiveRecord::Schema.define(version: 2021_08_06_234537) do
     t.string "position"
     t.float "era"
     t.float "whip"
+    t.integer "ab"
+    t.integer "r"
+    t.integer "h"
+    t.integer "sb"
+    t.float "obp"
+    t.float "ops"
+    t.float "wpct"
+    t.integer "g"
+    t.integer "gs"
+    t.integer "sv"
+    t.integer "ip"
+    t.integer "so"
   end
 
   create_table "teams", force: :cascade do |t|

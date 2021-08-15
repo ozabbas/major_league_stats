@@ -7,4 +7,5 @@ class PlayersController < ApplicationController
   def show
     render json: Player.find_by(id: params[:id])
   end
+  
 end
