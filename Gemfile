@@ -41,3 +41,5 @@ gem "http"
 
 gem "pry"
 
+gem 'jwt'
+
