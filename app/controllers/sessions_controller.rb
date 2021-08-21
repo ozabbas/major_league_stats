@@ -11,10 +11,15 @@ class SessionsController < ApplicationController
         "random", # the secret key
         'HS256' # the encryption algorithm
       )
-      render json: {jwt: jwt, email: user.email}, status: :created
+      render json: {jwt: jwt, email: user.email, user_id: user.id}, status: :created
     else
       render json: {}, status: :unauthorized
     end
   end
   
+  # def authenticate
+  #   token = request.headers["authenticate"]
+  #   user = User.find_by(email: params[:email])
+    
+  # end
 end
