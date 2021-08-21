@@ -13,4 +13,9 @@ class UsersController < ApplicationController
     end
   end
 
+  def teams
+    user = User.find(params[:id])
+    render json: user.teams, include: :players
+  end
+
 end

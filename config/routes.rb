@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   resources :players
   
   resources :users, only: [:create]
-  resources :sessions, only: [:create]
   resources :teams, only: [:create]
-
+  resources :sessions, only: [:create, :user_authenticate]
+  get 'sessions/user_authenticate', to: 'sessions#user_authenticate'
+  get 'users/:id/teams', to: 'users#teams'
 end
